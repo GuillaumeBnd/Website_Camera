@@ -1,5 +1,16 @@
 # Website_Camera
 
+## Introduction
+This project goal is to create a website on a raspberry pi, with a database identification that can give access to a camera stream also connected to the raspberry. 
+
+/!\ this is still a work in progress /!\
+
+### Install an Operating System on Raspberry Pi
+
+I choose to install Ubuntu Mate on my Raspberry Pi
+Download the image on internet and flash a usb drive with it, tutorial can be found online. 
+Once the Raspberry Pi is configured you can do the rest of the tutorial via ssh. 
+
 ### Download apache2 
 ````
 sudo apt update
@@ -39,4 +50,24 @@ CREATE TABLE IF NOT EXISTS `accounts` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 ````
- Modify the code in .php files to match the database name and config
+Modify the code in .php files to match the database name and config
+
+# Implement the code
+
+Go in the repository /var/www/
+````
+cd /var/www/
+````
+Create a folder with the name of you choice 
+
+````
+mkdir Website
+````
+copy there all the website code you need to. 
+
+# Acess to your Website
+
+To access your website on your local pc, you need to be connected to the same wifi network as your raspberry pi and to go to the http adress : ( change the name of the raspberry pi ip adress by yours) 
+````
+192.168.0.9/Website/index.html
+````
