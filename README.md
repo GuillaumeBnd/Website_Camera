@@ -7,7 +7,7 @@ This project goal is to create a website on a raspberry pi, with a database iden
 
 ### Install an Operating System on Raspberry Pi
 
-I choose to install Ubuntu Mate on my Raspberry Pi
+I choose to install RaspberryPi OS on my Raspberry Pi
 Download the image on internet and flash a usb drive with it, tutorial can be found online. 
 Once the Raspberry Pi is configured you can do the rest of the tutorial via ssh. 
 
@@ -18,8 +18,8 @@ sudo apt install apache2
 ````
 ### Download php 
 ````
-sudo apt-get install php libapache2-mod-php8.1
-sudo a2enmod php8.1
+sudo apt-get install php libapache2-mod-php8.2
+sudo a2enmod php8.2
 sudo service apache2 reload
 ````
 
@@ -27,12 +27,14 @@ sudo service apache2 reload
 
 ### Download MySql 
 ````
-sudo apt install mysql-server
+sudo apt install mariadb-server
 sudo systemctl start mysql.service
+sudo mysql_secure_installation
 ````
-### Load with root user
+### Load with root user and create a profile
 ````
 mysql -u root -p
+CREATE USER 'user'@'%' IDENTIFIED BY 'password';
 ````
 ### Create a Database
 ````
@@ -46,9 +48,8 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   	`username` varchar(50) NOT NULL,
   	`password` varchar(255) NOT NULL,
   	`email` varchar(100) NOT NULL,
-    `activation_code` varchar(50) DEFAULT ''
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+    `activation_code` varchar(50) DEFAULT '',
+    PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 ````
 Modify the code in .php files to match the database name and config
 
