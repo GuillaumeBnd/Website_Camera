@@ -3,6 +3,8 @@
 ## Introduction
 This project goal is to create a website on a raspberry pi, with a database identification that can give access to a camera stream also connected to the raspberry. 
 
+At Term the video stream should be used to detect wine bottle label, then store and display information about this wine, using the vivino database. 
+
 /!\ this is still a work in progress /!\
 
 ### Install an Operating System on Raspberry Pi
